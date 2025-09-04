@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-gitops
+  namespace: flask-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-gitops
+  template:
+    metadata:
+      labels:
+        app: flask-gitops
+    spec:
+      containers:
+      - name: flask-app
+        image: 839507877817.dkr.ecr.us-west-2.amazonaws.com/workshop-vscode-app:latest # {"$imagepolicy": "flux-system:testingworkshop"}
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: app-config
