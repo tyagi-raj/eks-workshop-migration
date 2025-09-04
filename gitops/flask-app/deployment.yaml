@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: 839507877817.dkr.ecr.us-west-2.amazonaws.com/workshop-vscode-app:a6bf9b1b4fa30c2edde2a5a60207cc902010e5dd # {"": "flux-system:testingworkshop"}
+        image: 839507877817.dkr.ecr.us-west-2.amazonaws.com/workshop-vscode-app:5841931e6b269bf54880fa8233e7608a1970756b # {"": "flux-system:testingworkshop"}
         ports:
         - containerPort: 8000
         envFrom:
