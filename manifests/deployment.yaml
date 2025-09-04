@@ -4,7 +4,7 @@ metadata:
   name: flask-github
   namespace: flask-demo
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: flask-github
