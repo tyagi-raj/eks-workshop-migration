@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-github
+  namespace: flask-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-github
+  template:
+    metadata:
+      labels:
+        app: flask-github
+    spec:
+      containers:
+      - name: flask-app
+        image: 839507877817.dkr.ecr.us-west-2.amazonaws.com/workshop-vscode-app:latest
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: app-config
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: 8000
+          initialDelaySeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 8000
+          initialDelaySeconds: 5

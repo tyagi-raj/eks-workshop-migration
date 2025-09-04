@@ -1,0 +1,9 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: legacy-ecommerce-app
+  namespace: flux-system
+spec:
+  image: PLACEHOLDER_ECR_URI
+  interval: 30s
+  provider: aws

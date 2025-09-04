@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: flask-demo
+data:
+  ENABLE_CART: "true"
+  ENABLE_RECOMMENDATIONS: "true"
+  MAX_ITEMS_PER_PAGE: "20"
